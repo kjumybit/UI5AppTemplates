@@ -1,0 +1,58 @@
+<core:View controllerName="org.hkroeber.demo.ws.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:t="sap.tnt">
+	<App>
+		<t:ToolPage id="toolPage">
+			<t:header>
+				<t:ToolHeader>
+					<Button press="onSideNavButtonPress" type="Transparent" icon="sap-icon://menu2">
+            			<layoutData>
+                			<OverflowToolbarLayoutData priority="NeverOverflow" />
+            			</layoutData>
+					</Button>
+					<ToolbarSpacer/>
+					<Title text="{i18n>title}"/>
+					<t:ToolHeaderUtilitySeparator />
+					<ToolbarSpacer/>
+					<Button type="Transparent" icon="sap-icon://settings">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow" />
+						</layoutData>
+					</Button>
+				</t:ToolHeader>
+			</t:header>	
+			<t:sideContent>
+				<t:SideNavigation id="sideNavigation" expanded="false">
+					<t:item>
+						<t:NavigationList>
+                			<t:NavigationListItem text="Item 1" icon="sap-icon://employee">
+							</t:NavigationListItem>
+ 						</t:NavigationList>
+					</t:item>
+					<t:fixedItem>
+						<t:NavigationList>
+                			<t:NavigationListItem text="Item 20" icon="sap-icon://employee">
+							</t:NavigationListItem>
+ 						</t:NavigationList>
+					</t:fixedItem>
+					<t:footer>
+						<t:NavigationList>
+                			<t:NavigationListItem text="Item 30" icon="sap-icon://employee">
+							</t:NavigationListItem>
+ 						</t:NavigationList>
+					</t:footer>
+				</t:SideNavigation>
+			</t:sideContent>
+			<t:mainContents>
+				<ScrollContainer horizontal="true" vertical="true" height="100%">
+					<FormattedText xmlns="sap.m"
+						id="FhemEvents"
+						htmlText="FHEM ecvents"
+						width="auto"
+						height="auto">
+					</FormattedText>
+				</ScrollContainer>
+			</t:mainContents>
+		</t:ToolPage>
+	</App>
+</core:View>
