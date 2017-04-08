@@ -1,0 +1,12 @@
+<mvc:View controllerName="controller.MainView" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="{i18n>title}">
+		<content>
+			<FormattedText xmlns="sap.m"
+				id="FhemEvents"
+				htmlText="FHEM ecvents"
+				width="auto"
+				height="auto">
+			</FormattedText>
+		</content>
+	</Page>
+</mvc:View>

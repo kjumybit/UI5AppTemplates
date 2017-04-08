@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">        
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        
+		<title>ui5template</title>
+
+		<script id="sap-ui-bootstrap"
+			src="./resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-preload='async'
+			data-sap-ui-resourceroots='{ "ui5": "./",
+			    "constants" : "constants",
+			    "controller" : "controller",
+				"view" : "view",
+                "model" : "model",
+                "img" : "img",
+                "socket.io" : "js/socket.io.min"
+			}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body class="sapUiBody" id="content">
+		<script type="text/javascript" src="cordova.js"></script>	
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+
+</html>
