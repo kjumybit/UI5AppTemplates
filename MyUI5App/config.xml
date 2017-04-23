@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="de.kjumybit.demo.ws" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyHomeDemo</name>
+    <name>MySmartHomeDemo</name>
     <description>
         A demo app that displays events of a FHEM server using socket.io communication.
     </description>
