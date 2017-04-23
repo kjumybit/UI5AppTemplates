@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("com.test.helloworld.controller.View1", {
+	return Controller.extend("com.test.helloworld.controller.MainMasterDetail", {
 
 	/**
 	* Called when a controller is instantiated and its View controls (if available) are already created.

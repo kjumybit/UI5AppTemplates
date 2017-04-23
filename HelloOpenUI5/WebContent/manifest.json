@@ -41,7 +41,7 @@
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "com.test.helloworld.view.View1",
+			"viewName": "com.test.helloworld.view.Main",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -72,16 +72,47 @@
 		"routing": {
 		  	"config": {
 		  		"routerClass": "sap.m.routing.Router",
+				"controlId": "app", 		
 				"viewType": "XML",
-				"viewPath": "com.test.helloworld.view",
-				"controlAggregation": "pages",
-				"controlId": "app"
+				"viewPath": "com.test.helloworld.view"	
 	 	 	},
-	  		"routes": [{
+	  		"routes": [
+	  		{
+		  		"pattern": "masterdetail",
+		  		"viewName": "MainMasterDetail",
+		  		"name": "MainMasterDetail",
+		  		"target": ["detail", "master"] 			
+			},
+	  		{
 		  		"pattern": "",
-		  		"viewName": "View1",
-		  		"name": "View1"		  
-			}]
+		  		"viewName": "Main",
+		  		"name": "NavToSimple",
+		  		"target": "simple" 			
+			},		  						  	
+	  		{
+		  		"pattern": "full",
+		  		"viewName": "Main",
+		  		"name": "NavToFullScreen",
+		  		"target": "full" 			
+			}],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "masterPages"				
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "detailPages"				
+				},
+				"simple": {
+					"viewName": "Simple",
+					"controlAggregation": "pages"					
+				},
+				"full": {
+					"viewName": "FullScreen",
+					"controlAggregation": "pages"
+				}				
+			}
 		}
   	}	
 }
