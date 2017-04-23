@@ -5,8 +5,14 @@ Contains several project skelletons for web applications using SAP's HTML5 Javas
 
 The project folders doesn't contain required external libraries (e.g. openui5, jquery, socketio, cordova)
 
-HelloOpenUI5: Basic openui5 project structure, manifest configuration file, views for several page layouts (simple , full screen, master datail page)
+- HelloOpenUI5: 
+  - Basic openui5 project structure with several page layouts
+  - manifest configuration file
+  - simple page, sematic page, master datail page
+  
+- HelloOpenUI5WS: 
+  - Use Socket.IO with a Node.js server application
 
-HelloOpenUI5WS: Prototyp app using Socket.IO with a Node.js server application
-
-MyUI5App: Hybrid app build with Apache Cordova using OpenUI5 and Socket.IO
+- MyUI5App: 
+  - Hybrid app build with Apache Cordova 
+  - using OpenUI5 and Socket.IO
