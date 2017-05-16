@@ -21,7 +21,7 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
                 'sync disconnect on unload' : true
             });
 			
-			/*
+			/**
 			 *  passing controller instance to handler function via 
 			 *  - closures
 			 *  - object property (won't work)
