@@ -1,10 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"sap/ui/Device",
 	"model/models",
     "constants/service",
     "constants/values"
-], function(UIComponent, Device, models) {
+], function(UIComponent, models) {
 	"use strict";
 
 	return UIComponent.extend("ui5.Component", {
@@ -14,7 +13,8 @@ sap.ui.define([
 		},
 
 		/**
-		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+		 * The component is initialized by UI5 automatically during the startup of the app 
+		 * and calls the init method once.
 		 * @public
 		 * @override
 		 */
@@ -24,15 +24,18 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-            			
-			//initialise navigation
+           
+			// set the local storage model for app settings
+			this.setModel(models.createFhemJsConfigModel(), "settings");
+			
+			//initialize navigation
 			this.getRouter().initialize();
 		},
         
         /**
         * The content density adapts itself based on the device type
         */ 
-		getContentDensityClass : function() {
+		getContentDensityClass: function() {
 			if (!this._sContentDensityClass) {
 				if (!sap.ui.Device.support.touch) {
 					this._sContentDensityClass = "sapUiSizeCompact";
