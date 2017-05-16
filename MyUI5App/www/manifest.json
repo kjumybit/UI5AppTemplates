@@ -9,6 +9,7 @@
 			"version": "1.0.0"
 		},
 		"title": "{{appTitle}}",
+		"subtitle": "{{appSubTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
 			"id": "",
@@ -33,7 +34,8 @@
 		},
 		"supportedThemes": [
 			"sap_bluecrystal"
-		]
+		],
+		"fullWidth": true
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",

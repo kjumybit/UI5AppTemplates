@@ -4,13 +4,23 @@ sap.ui.define([
 ], function(JSONModel, Device) {
 	"use strict";
 
+	/**
+	 *  Create JSON data models
+	 */
 	return {
-
+		
 		createDeviceModel: function() {
 			var oModel = new JSONModel(Device);
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
-		}
+		},
+		
+        createFhemJsConfigModel: function() {
+        	//TODO
+			var oModel = new JSONModel();
+			oModel.setDefaultBindingMode("OneWay");
+        	return oModel;
+        }
 
 	};
 
