@@ -25,14 +25,13 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 			
-			// set settings model
-			//TODO: define model in descriptor ???, use new JS class
-			var oSettings = {
-		            settings : {
-		               serverURL : "ws://himberrypi.fritz.box:8086"
-		            }
-		    };
-		    this.setModel(new JSONModel(oSettings));
+			// set the local app configuration model
+			this.setModel(models.createAppSettingsModel(), "settings");
+			
+			// set own components (models etc.)
+			jQuery.sap.require("MyNamespace.Module");
+			this.myService = new MyNamespace.Module.Service();
+			
 		}
 	});
 })

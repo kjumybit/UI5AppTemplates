@@ -15,13 +15,14 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 
 		    // create websocket
 			jQuery.sap.require("socket.io");
-			this.socket = io.connect('ws://himberrypi.fritz.box:8086',
+			// this.socket = io.connect('ws://himberrypi.fritz.box:8086',
+			this.socket = io.connect('ws://localhost:8086',
             {
                 timeout: 5000,
                 'sync disconnect on unload' : true
             });
 			
-			/*
+			/**
 			 *  passing controller instance to handler function via 
 			 *  - closures
 			 *  - object property (won't work)
@@ -37,12 +38,13 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 			this.socket.on('connect', (function(oController) {
 				return function() { 
 					oController.appendStringToEventContainer('Successfully connected to server');
-					oController.socket.emit('getAllValuesOnChange');
+					// oController.socket.emit('getAllValuesOnChange');
+					oController.socket.emit('getMetaData');
 				}
 			})(this));
 
 			// a ws message contains only a single fhem device event
-			// var changesValues act as a local container
+			// var changedValues act as a local container
 			var changedValues = '';
 			this.socket.on('value', (function(oController) {
 				return function(data) { 
@@ -52,6 +54,15 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 				         changedValues = changedValues + unit + ': ' + value + "<br>";
 				    }
 					oController.appendStringToEventContainer(changedValues);
+				}
+			})(this));
+
+
+			this.socket.on('metaData', (function(oController) {
+				return function(data) {
+					if (data) {
+						oController.appendStringToEventContainer(data.toString());
+					};
 				}
 			})(this));
 
