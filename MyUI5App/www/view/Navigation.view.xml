@@ -1,0 +1,78 @@
+<mvc:View controllerName="de.kjumybit.fhem.controller.Navigation"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:t="sap.tnt"
+	height="100%"
+	class="side-navigation">
+	<Page id="viewNavigation" 
+		title="{i18n>navTitle}"
+		backgroundDesign="Standard"		
+		showNavButton="false" >
+		
+		<customHeader>
+			<Toolbar width="100%">
+					<Button icon="sap-icon://nav-back" press="onPressNavigationBack" />
+					<ToolbarSpacer/>
+					<!-- <Title text="{i18n>navTitle}"/> -->
+			    	<!-- <Button icon="sap-icon://action-settings"/>  -->
+			 </Toolbar>
+		</customHeader>
+
+		<content>
+			<!-- 
+				<t:SideNavigation id="sideNavigation" class="sapUiForceWidthAuto" /> 
+			 -->
+			 
+	<t:SideNavigation id="sideNavigation">
+		<t:item>
+			<t:NavigationList>
+				<t:NavigationListItem
+					text="Item 1"
+					icon="sap-icon://employee">
+					<t:NavigationListItem text="Sub Item 1">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 2">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 3">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 4">
+					</t:NavigationListItem>
+				</t:NavigationListItem>
+				<t:NavigationListItem
+					text="Item 2"
+					icon="sap-icon://building">
+					<t:NavigationListItem text="Sub Item 1">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 2">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 3">
+					</t:NavigationListItem>
+					<t:NavigationListItem text="Sub Item 4">
+					</t:NavigationListItem>
+				</t:NavigationListItem>
+			</t:NavigationList>
+		</t:item>
+		<t:fixedItem>
+			<t:NavigationList>
+				<t:NavigationListItem text="Item 1" icon="sap-icon://employee"/>
+				<t:NavigationListItem text="Item 2" icon="sap-icon://building"/>
+				<t:NavigationListItem text="Item 3" icon="sap-icon://card"/>
+			</t:NavigationList>
+		</t:fixedItem>
+	</t:SideNavigation>			 
+			 
+			<!-- no Padding, no margin -->
+		</content>
+
+		<footer>
+			<Bar> 
+				<contentRight>
+			    	<Button press="onPressSettings" icon="sap-icon://action-settings"/>
+			    </contentRight>
+			</Bar>		
+		</footer>
+		
+	</Page>
+</mvc:View>

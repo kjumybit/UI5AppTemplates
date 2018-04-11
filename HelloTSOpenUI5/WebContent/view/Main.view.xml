@@ -1,0 +1,13 @@
+<core:View controllerName="ui5.test.helloTS.controller.Main"
+	height="100%"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	displayBlock="true">
+	<Page id="Main" title="{i18n>Title}">
+		<content>
+			<Text text="Hello World"/>
+		</content> 
+	</Page> 
+</core:View>

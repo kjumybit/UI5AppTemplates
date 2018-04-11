@@ -15,9 +15,7 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 
 		    // create websocket
 			jQuery.sap.require("socket.io");
-			// this.socket = io.connect('ws://himberrypi.fritz.box:8086',
-			this.socket = io.connect('ws://localhost:8086',
-            {
+			this.socket = io.connect('ws://localhost:8086', {
                 timeout: 5000,
                 'sync disconnect on unload' : true
             });
@@ -33,8 +31,7 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 					oController.appendStringToEventContainer('Error while connecting to server');
 				}
 			})(this));
-			
-			
+						
 			this.socket.on('connect', (function(oController) {
 				return function() { 
 					oController.appendStringToEventContainer('Successfully connected to server');
@@ -88,55 +85,58 @@ sap.ui.define([ "sap/ui/core/mvc/Controller" ], function(Controller) {
 			})(this));
 		},
 
-	/**
-	 * Similar to onAfterRendering, but this hook is invoked before the
-	 * controller's View is re-rendered (NOT before the first rendering!
-	 * onInit() is used for that one!).
-	 * 
-	 * @memberOf helloworld.Main
-	 */
-	// onBeforeRendering: function() {
-	//
-	// },
-	/**
-	 * Called when the View has been rendered (so its HTML is part of the
-	 * document). Post-rendering manipulations of the HTML could be done here.
-	 * This hook is the same one that SAPUI5 controls get after being rendered.
-	 * 
-	 * @memberOf helloworld.Main
-	 */
-	// onAfterRendering: function() {
-	//
-	// },
-	
-	/**
-	 * Called when the Controller is destroyed. Use this one to free resources
-	 * and finalize activities.
-	 * 
-	 * @memberOf helloworld.Main
-	 */
-	onExit: function() {
-		// disconnect from websocket server
-		if (this.socket) this.socket.disconnect();
-	},
-	
-	/**
-	 * Handle Side Navigation toggle button
-	 */
-	onSideNavButtonPress: function() {
-		var sideNavigation = this.getView().byId("sideNavigation");
-		var expanded = !sideNavigation.getExpanded();
 
-		sideNavigation.setExpanded(expanded);
-	},
+		/**
+		 * Similar to onAfterRendering, but this hook is invoked before the
+		 * controller's View is re-rendered (NOT before the first rendering!
+		 * onInit() is used for that one!).
+		 * 
+		 * @memberOf helloworld.Main
+		 */
+		// onBeforeRendering: function() {
+		//
+		// },
+		/**
+		 * Called when the View has been rendered (so its HTML is part of the
+		 * document). Post-rendering manipulations of the HTML could be done here.
+		 * This hook is the same one that SAPUI5 controls get after being rendered.
+		 * 
+		 * @memberOf helloworld.Main
+		 */
+		// onAfterRendering: function() {
+		//
+		// },
 		
-	/**
-	 * Append new string to event text HTML container
-	 */
-	appendStringToEventContainer: function(newText, clearText) {
-		if (clearText) /* TODO: get HTML Text */;
-		var fText = this.byId("FhemEvents");
-		if (fText) fText.setHtmlText(newText);
-	}
+		/**
+		 * Called when the Controller is destroyed. Use this one to free resources
+		 * and finalize activities.
+		 * 
+		 * @memberOf helloworld.Main
+		 */
+		onExit: function() {
+			// disconnect from websocket server
+			if (this.socket) this.socket.disconnect();
+		},
+		
+		/**
+		 * Handle Side Navigation toggle button
+		 */
+		onSideNavButtonPress: function() {
+			var sideNavigation = this.getView().byId("sideNavigation");
+			var expanded = !sideNavigation.getExpanded();
+
+			sideNavigation.setExpanded(expanded);
+		},
+			
+		/**
+		 * Append new string to event text HTML container
+		 * @param {string} sNewText Text to append
+		 * @param {boolean} bClearText Clear text container
+		 */
+		appendStringToEventContainer: function(sNewText, bClearText) {
+			let oText = this.byId("FhemEvents");
+			let sText = (bClearText ? oText.getHtmlText() + sNewText : sNewText );
+			oText.setHtmlText(sText);
+		}
 	});
 });

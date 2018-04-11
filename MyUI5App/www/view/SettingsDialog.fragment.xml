@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form">
+	<Dialog	id="settingsDlg" title="{i18n>appSettings}" >
+		<content>
+		    <form:Form editable="true">
+		    
+		        <form:formContainers>
+		            <form:FormContainer title="{i18n>cfgSrvConnection}">
+		                <form:formElements>
+		                    <form:FormElement label="{i18n>cfgSrvHost}" >
+		                        <form:fields>
+		                            <Input value="{settings>/server/host}"/>
+		                        </form:fields>
+		                    </form:FormElement>
+		                    <form:FormElement label="{i18n>cfgSrvPort}">
+		                        <form:fields>
+		                            <Input value="{settings>/server/port}"/>
+		                        </form:fields>
+		                    </form:FormElement>
+		                    <form:FormElement label="{i18n>cfgConnSecure}">
+		                    <form:fields>
+		                        <Switch state="{settings>/protocoll/secure}"/>
+		                    </form:fields>
+		                    </form:FormElement>
+		                </form:formElements>
+		            </form:FormContainer>
+		            
+		            <form:FormContainer title="{i18n>cfgUsrAuth}" >
+		                <form:formElements>
+		                    <form:FormElement label="{i18n>cfgUsrName}" >
+		                        <form:fields>
+		                            <Input value="{settings>/authentication/userName}"/>
+		                        </form:fields>
+		                    </form:FormElement>
+		                    <form:FormElement label="{i18n>cfgUsrPassword}" >
+		                        <form:fields>
+		                            <Input value="{settings>/authentication/password}"/>
+		                        </form:fields>
+		                    </form:FormElement>
+		                </form:formElements>
+		            </form:FormContainer>
+		        </form:formContainers>
+		        
+		        <form:layout>
+		            <form:ResponsiveGridLayout breakpointM="480" labelSpanM="4"/>
+		        </form:layout>
+			</form:Form>		
+		</content>
+		<buttons>
+			<Button press="onPressCloseSettingsDlg" text="{i18n>btnClose}"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

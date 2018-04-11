@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'fhem';
+  src:  url('fonts/fhem.eot?hntvcn');
+  src:  url('fonts/fhem.eot?hntvcn#iefix') format('embedded-opentype'),
+    url('fonts/fhem.ttf?hntvcn') format('truetype'),
+    url('fonts/fhem.woff?hntvcn') format('woff'),
+    url('fonts/fhem.svg?hntvcn#fhem') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fhem' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1; 
+  text-align: center;
+  text-width: 1em;
+  
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-DIN_rail_housing:before {
+  content: "\e900";
+}
+.icon-fts_door:before {
+  content: "\e931";
+}
+.icon-fts_door_open:before {
+  content: "\e932";
+}
+.icon-hm-cc-rt-dn:before {
+  content: "\e933";
+}
+.icon-hm_ccu:before {
+  content: "\e934";
+}
+.icon-hm-dis-wm55:before {
+  content: "\e935";
+}
+.icon-hm_keymatic:before {
+  content: "\e936";
+}
+.icon-hm_lan:before {
+  content: "\e937";
+}
+.icon-it_network:before {
+  content: "\e938";
+}
+.icon-it_router:before {
+  content: "\e939";
+}
+.icon-it_wifi:before {
+  content: "\e93a";
+}
+.icon-measure_power:before {
+  content: "\e93b";
+}
+.icon-measure_power_meter:before {
+  content: "\e93c";
+}
+.icon-measure_voltage:before {
+  content: "\e93d";
+}
+.icon-measure_water_meter:before {
+  content: "\e93e";
+}
+.icon-message_light_intensity:before {
+  content: "\e93f";
+}

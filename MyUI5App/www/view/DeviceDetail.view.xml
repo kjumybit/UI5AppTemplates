@@ -1,0 +1,161 @@
+<core:View controllerName="de.kjumybit.fhem.controller.DeviceDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true">
+	<Page id="viewDeviceDetail" title="{i18n>DeviceDetail}">
+		<content>
+				<!-- 
+					Device header 
+				-->
+				<ObjectHeader 
+					title="{parts:[{path:'fhemMetaData>Attributes/alias'},{path:'fhemMetaData>Name'}],
+	    				    formatter: '.formatter.getDeviceName'}" 
+	    			intro="{fhemMetaData>Name}" 
+	    			number="{fhemMetaData>Internals/STATE}" 
+	    			numberUnit="" 
+					backgroundDesign="Solid" icon="sap-icon://heating-cooling" responsive="true" titleLevel="H2">					
+				    <statuses>					
+				        <ObjectStatus text=""/>					
+				    </statuses>					
+					<attributes>
+				    	<ObjectAttribute text="{fhemMetaData>Attributes/room}" title="{i18n>Room}"/>					
+					</attributes>				
+				</ObjectHeader>
+					
+				<!--
+					Device actions 
+				 -->
+				<OverflowToolbar width="100%" design="Solid">					
+				    <content>					
+				        <Text text="Aktionstasten" />					
+				        <ToolbarSpacer/>					
+				        <Switch />
+				    </content>					
+				</OverflowToolbar>
+
+				<!--
+					Device Details 
+				 -->					
+				<IconTabBar backgroundDesign="Transparent">					
+				    <items>			
+				    
+				    	<!-- Readings -->		
+				        <IconTabFilter text="Readings" icon="sap-icon://measure">
+							<f:Form editable="false" >
+								<f:title> 
+									<core:Title text="Readings" />
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="4"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="0"
+										emptySpanL="0"
+										emptySpanM="0"
+										emptySpanS="0"
+										columnsXL="2"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" />
+								</f:layout>
+								<f:formContainers>
+									<!--  <f:FormContainer id="formReadings" /> -->
+									<f:FormContainer id="formReadings" formElements="{DeviceDetail>/Readings}">
+										<f:formElements>
+											<f:FormElement label="{DeviceDetail>Name}" >
+												<f:fields>
+													<Text text="{DeviceDetail>Value}" />
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>				        
+				        </IconTabFilter>
+					
+						<!-- Internals -->
+				        <IconTabFilter text="Internals" icon="sap-icon://action-settings">
+							<f:Form editable="false" >
+								<f:title> 
+									<core:Title text="Internals" />
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="4"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="0"
+										emptySpanL="0"
+										emptySpanM="0"
+										emptySpanS="0"
+										columnsXL="2"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="formInternals" />
+								</f:formContainers>
+							</f:Form>				        
+
+						</IconTabFilter>
+									   
+				    	<!-- Attributes -->									        
+						<IconTabFilter text="Attributes" icon="sap-icon://action-settings">
+							<f:Form editable="false" >
+								<f:title> 
+									<core:Title text="Attributes" />
+								</f:title>
+								<f:layout>
+									<f:ResponsiveGridLayout
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="4"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="0"
+										emptySpanL="0"
+										emptySpanM="0"
+										emptySpanS="0"
+										columnsXL="2"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" />
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="formAttributes" />
+								</f:formContainers>
+							</f:Form>				        
+						</IconTabFilter>									        
+				        
+				    	<!-- Charts -->				        
+				        <IconTabFilter text="Charts" icon="sap-icon://line-chart">
+						</IconTabFilter>
+						
+					</items>
+				</IconTabBar>		
+
+ 
+		</content> 
+
+		<footer>
+			<Bar> 
+				<contentRight>
+			    	<Button 
+				    	icon="{= ${runtime>/fhemConnection/isConnected} ? 'sap-icon://connected' : 'sap-icon://disconnected'}"  
+						type="{= ${runtime>/fhemConnection/isConnected} ? 'Accept' : 'Reject'}"/>
+			    </contentRight>
+			</Bar>		
+		</footer>
+		
+	</Page>
+</core:View>

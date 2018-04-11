@@ -1,0 +1,25 @@
+<core:View controllerName="de.kjumybit.fhem.controller.Overview"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	displayBlock="true">
+      	
+	<Page id="viewOverview" title="{i18n>Overview}">
+	
+		<content>
+
+		<!-- Tile List -->
+		</content> 
+
+		<footer>
+			<Bar> 
+				<contentRight>
+			    	<Button
+			    		icon="{= ${runtime>/fhemConnection/isConnected} ? 'sap-icon://connected' : 'sap-icon://disconnected'}"  
+						type="{= ${runtime>/fhemConnection/isConnected} ? 'Accept' : 'Reject'}"/>
+			    </contentRight>
+			</Bar>		
+		</footer>
+	</Page>
+</core:View>

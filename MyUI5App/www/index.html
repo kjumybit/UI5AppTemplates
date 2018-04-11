@@ -11,20 +11,24 @@
 		<script id="sap-ui-bootstrap"
 			src="./resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-theme="sap_belize_plus"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-preload='async'
-			data-sap-ui-resourceroots='{ "ui5": "./",
+			data-sap-ui-resourceroots='{ "de.kjumybit.fhem": "./",
 			    "constants" : "constants",
 			    "controller" : "controller",
+			  	"libs" : "libs",			    
 				"view" : "view",
                 "model" : "model",
                 "img" : "img",
-                "socket.io" : "js/socket.io.min"
+                "socket.io" : "js/socket.io.min",
+			  	"fhem.model": "libs/fhemcli"                
 			}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/fhemfont.css">
+				
 	</head>
 
 	<body class="sapUiBody" id="content">

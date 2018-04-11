@@ -1,0 +1,68 @@
+<core:View controllerName="de.kjumybit.fhem.controller.DeviceList"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	displayBlock="true">
+	<Page id="viewDeviceList" title="{i18n>detailDeviceList}">
+		<content>
+			
+			<Panel backgroundDesign="Transparent">
+			
+			<Table id="tblDeviceList" 		
+				   items="{ path: 'fhemMetaData>/DeviceSet',
+				            sorter : {
+								path : 'Internals/TYPE',
+								group : true
+							},
+							groupHeaderFactory: '.grouper.getDeviceSetGroupHeader' 
+						  }"
+					growing="true"
+					growingScrollToLoad="true">
+					<!-- class="sapUiResponsiveMargin"> -->					
+				<columns>
+					<Column witdh="auto">	
+						<Text text="{i18n>device}" />
+					</Column>					
+					<Column>	
+						<Text text="{i18n>state}" />
+					</Column>
+					<Column minScreenWidth="Tablet">	
+						<Text text="{i18n>stateTime}" 
+						/>
+					</Column>								
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onItemPress">
+						<cells>
+							<ObjectIdentifier 
+								title="{ 
+									parts:[{path:'fhemMetaData>Attributes/alias'},{path:'fhemMetaData>Name'}],
+	    						    formatter: '.formatter.getDeviceName'
+	    					    }"/>
+							<Text text="{fhemMetaData>Internals/STATE}" />
+							<Text text="{ path: 'fhemMetaData>Readings/state/Time',
+								          type: 'sap.ui.model.type.DateTime', 
+								          formatOptions: {
+											source: { pattern: 'yyyy-MM-dd HH:mm:ss' }
+										}
+							}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Panel>
+
+		</content> 
+		
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button 
+						icon="{= ${runtime>/fhemConnection/isConnected} ? 'sap-icon://connected' : 'sap-icon://disconnected'}"  
+						type="{= ${runtime>/fhemConnection/isConnected} ? 'Accept' : 'Reject'}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

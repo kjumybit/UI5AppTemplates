@@ -1,0 +1,37 @@
+<core:View controllerName="de.kjumybit.fhem.controller.RoomList"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout"
+	displayBlock="true">
+	<Page id="viewRoomList" title="{i18n>RoomList}">
+	
+		<content>
+
+			<!-- Tile List -->
+			<Panel width="auto" backgroundDesign="Transparent" >
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Etage oder Gruppe"/>
+					</Toolbar>
+				</headerToolbar>
+		
+			<l:HorizontalLayout id="TileRoomList" allowWrapping="true" class="sapUiResponsiveContentPadding">
+			</l:HorizontalLayout>
+			</Panel>
+			
+		</content> 
+				
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button 
+						icon="{= ${runtime>/fhemConnection/isConnected} ? 'sap-icon://connected' : 'sap-icon://disconnected'}"  
+						type="{= ${runtime>/fhemConnection/isConnected} ? 'Accept' : 'Reject'}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		
+	</Page>
+</core:View>

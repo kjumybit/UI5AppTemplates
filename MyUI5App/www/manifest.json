@@ -2,22 +2,20 @@
 	"_version": "1.1.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "ui5",
+		"id": "de.kjumybit.fhem",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
 		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"sourceTemplate": {
-			"id": "",
-			"version": "1.38.18"
-		}
+		"description": "{{appDescription}}"
 	},
+
 	"sap.ui": {
 		"_version": "1.1.0",
 		"technology": "UI5",
+		"fullWidth": true,
 		"icons": {
 			"icon": "",
 			"favIcon": "",
@@ -32,17 +30,22 @@
 			"phone": true
 		},
 		"supportedThemes": [
-			"sap_bluecrystal"
+			"sap_hcb",
+			"sap_bluecrystal",
+			"sap_belize",
+			"sap_belize_plus"
 		]
 	},
+
 	"sap.ui5": {
 		"_version": "1.1.0",
+		"handleValidation": true,
 		"rootView": {
-			"viewName": "ui5.view.App",
+			"viewName": "de.kjumybit.fhem.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.38.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
@@ -50,14 +53,14 @@
 			}
 		},
 		"contentDensities": {
-			"compact": true,
+			"compact": false,
 			"cozy": true
 		},
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "ui5.i18n.i18n"
+					"bundleName": "de.kjumybit.fhem.i18n.i18n"
 				}
 			}
 		},
@@ -65,31 +68,85 @@
 			"css": [
 				{
 					"uri": "css/style.css"
-				}
+				},
+				{
+					"uri": "css/fhemfont.css"
+				}				
 			]
 		},
 		"routing": {
-			"config": {
-				"routerClass": "sap.m.routing.Router",
+		  	"config": {
+		  		"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "ui5/view",
+				"viewPath": "de.kjumybit.fhem.view",
 				"controlId": "app",
-                "controlAggregation": "pages"
-			},
-			"routes": [
+				"transition": "show"
+	 	 	},
+	  		"routes": [
+	  			{
+		  			"pattern": "",
+		  			"viewName": "App",
+		  			"name": "App",
+		  			"target": ["devices", "navigation"]		  		  
+				},
 				{
-					"pattern": "",
-					"name": "MainView",
-					"target": [
-						"mainView"
-					]
+		  			"pattern": "overview",
+		  			"name": "Overview",
+		  			"target": "overview"		  		  			
+				},
+				{
+		  			"pattern": "devices",
+		  			"name": "DeviceList",
+		  			"target": "devices"
+		  		},
+		  		{
+		  			"pattern": "devicetypes",
+		  			"name": "DeviceTypeList",
+		  			"target": "deviceTypes"		  				  		  			
+				},
+				{
+		  			"pattern": "rooms",
+		  			"name": "RoomList",
+		  			"target": "rooms"		  		  							
+				},
+				{
+		  			"pattern": "devicedetail/{deviceId}",
+		  			"name": "DeviceDetail",
+		  			"target": "deviceDetail"		  		  							
 				}
 			],
 			"targets": {
-                "mainView": {
-					"viewName": "MainView"
-				}
-			}
+				"navigation": {
+					"viewName": "Navigation",
+					"viewLevel": 1,
+					"controlAggregation": "masterPages"				
+				},
+				"overview": {
+					"viewName": "Overview",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"				
+				},
+				"rooms": {
+					"viewName": "RoomList",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"				
+				},	
+				"devices": {
+					"viewName": "DeviceList",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"				
+				},
+				"deviceTypes": {
+					"viewName": "DeviceTypeList",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"				
+				},
+				"deviceDetail": {
+					"viewName": "DeviceDetail",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"				
+				}												
+			}			
 		}
-	}
+  	}	
 }
