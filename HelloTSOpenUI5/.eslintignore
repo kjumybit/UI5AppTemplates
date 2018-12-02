@@ -1,0 +1,5 @@
+# Ignore all files in ui5ts
+ui5ts/
+
+# Ignore generated *.js files
+**/*.js

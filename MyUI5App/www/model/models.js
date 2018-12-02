@@ -13,15 +13,8 @@ sap.ui.define([
 			var oModel = new JSONModel(Device);
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
-		},
+		}
 		
-        createFhemJsConfigModel: function() {
-        	//TODO
-			var oModel = new JSONModel();
-			oModel.setDefaultBindingMode("OneWay");
-        	return oModel;
-        }
-
 	};
 
 });

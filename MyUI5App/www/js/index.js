@@ -16,11 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+(function () {
+    'use strict';
+
 var app = {
+    
     // Application Constructor
     initialize: function() {
         this.bindEvents();
     },
+    
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -28,6 +34,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
+    
+    
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
@@ -37,7 +45,7 @@ var app = {
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
-						name : "ui5"
+						name : "de.kjumybit.fhem"
 					})
 				}).placeAt("content");
 			});
@@ -45,3 +53,5 @@ var app = {
 };
 
 app.initialize();
+
+}());
