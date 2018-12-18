@@ -2,7 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller" 
 ], function(Controller) {
 	"use strict";
-	return Controller.extend("controller.MainView", {
+	return Controller.extend("kjumybit.ui5.example.controller.MainView", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if
@@ -14,68 +14,7 @@ sap.ui.define([
 		 */
 		onInit : function() {
 
-		    // create websocket
-			jQuery.sap.require("socket.io");
-			this.socket = io.connect('ws://127.0.0.1:8086',
-            {
-                timeout: 5000,
-                'sync disconnect on unload' : true
-            });
-			
-			/*
-			 *  passing controller instance to handler function via 
-			 *  - closures
-			 *  - object property (won't work)
-			 *  - function property
-			 */ 
-			this.socket.on('connect_error', (function(oController) {
-				return function() { 
-					oController.appendStringToEventContainer('Error while connecting to server');
-				}
-			})(this));
-			
-			
-			this.socket.on('connect', (function(oController) {
-				return function() { 
-					oController.appendStringToEventContainer('Successfully connected to server');
-					oController.socket.emit('getAllValuesOnChange');
-				}
-			})(this));
 
-			// a ws message contains only a single fhem device event
-			// var changesValues act as a local container
-			var changedValues = '';
-			this.socket.on('value', (function(oController) {
-				return function(data) { 
-					var value = '';
-				    for (var unit in data) {
-				         value = data[unit];
-				         changedValues = changedValues + unit + ': ' + value + "<br>";
-				    }
-					oController.appendStringToEventContainer(changedValues);
-				}
-			})(this));
-
-			
-			this.socket.on('device', (function(oController) {
-				return function(data) { 
-					oController.appendStringToEventContainer(data);
-				}
-			})(this));
-
-			
-			this.socket.on('disconnect', (function(oController) {
-				return function() { 
-					oController.appendStringToEventContainer('Disconnected from server');
-				}
-			})(this));
-			
-			
-			this.socket.on('error', (function(oController) {
-				return function() { 
-					oController.appendStringToEventContainer('Connection error');
-				}
-			})(this));
 		},
 
 	/**
@@ -106,19 +45,9 @@ sap.ui.define([
 	 * @memberOf helloworld.Main
 	 */
 	onExit: function() {
-		// disconnect from websocket server
-		if (this.socket) this.socket.disconnect();
-	},
-	
-		
-	/**
-	 * Append new string to event text HTML container
-	 */
-	appendStringToEventContainer: function(newText, clearText) {
-		if (clearText) /* TODO: get HTML Text */;
-		var fText = this.byId("FhemEvents");
-		if (fText) fText.setHtmlText(newText);
+
 	}
+	
 	
 	});
 });

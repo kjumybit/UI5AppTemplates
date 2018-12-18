@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("de.kjumybit.fhem.controller.App", {
+	return Controller.extend("kjumybit.ui5.example.controller.App", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if
@@ -26,8 +26,7 @@ sap.ui.define([
 		 * @memberOf de.kjumybit.fhem.App
 		 */
 		onBeforeRendering: function() {
-			// save split app control
-			this.getOwnerComponent()._oApp = this.byId("app");
+	
 		},
 		
 		

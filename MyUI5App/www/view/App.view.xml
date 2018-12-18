@@ -1,9 +1,9 @@
 <core:View
-	controllerName="de.kjumybit.fhem.controller.App" 
+	controllerName="kjumybit.ui5.example.controller.App" 
 	displayBlock="true"
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"  
 	xmlns="sap.m">
-	<SplitApp id="app" />
+	<App id="app" />
 </core:View>

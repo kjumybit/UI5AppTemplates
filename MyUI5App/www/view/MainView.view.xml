@@ -1,9 +1,13 @@
-<mvc:View controllerName="controller.MainView" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<mvc:View 
+	controllerName="kjumybit.ui5.example.controller.MainView" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
 	<Page title="{i18n>title}">
 		<content>
 			<FormattedText xmlns="sap.m"
 				id="FhemEvents"
-				htmlText="FHEM ecvents"
+				htmlText="content"
 				width="auto"
 				height="auto">
 			</FormattedText>

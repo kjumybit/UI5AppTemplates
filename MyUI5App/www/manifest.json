@@ -2,7 +2,7 @@
 	"_version": "1.1.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "ui5",
+		"id": "kjumybit.ui5.example",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -39,8 +39,9 @@
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
+		"handleValidation": true,		
 		"rootView": {
-			"viewName": "ui5.view.App",
+			"viewName": "kjumybit.ui5.example.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -59,7 +60,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "ui5.i18n.i18n"
+					"bundleName": "kjumybit.ui5.example.i18n.i18n"
 				}
 			}
 		},
@@ -74,18 +75,17 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "ui5/view",
+				"viewPath": "kjumybit.ui5.example.view",
 				"controlId": "app",
                 "controlAggregation": "pages"
 			},
 			"routes": [
 				{
 					"pattern": "",
-					"name": "MainView",
-					"target": [
-						"mainView"
-					]
-				}
+					"view": "App",
+					"name": "App",
+					"target": "mainView"		  		  
+			  	}
 			],
 			"targets": {
                 "mainView": {

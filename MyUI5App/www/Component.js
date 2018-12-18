@@ -1,12 +1,10 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"model/models",
-    "constants/service",
-    "constants/values"
+	"model/models"
 ], function(UIComponent, models) {
 	"use strict";
 
-	return UIComponent.extend("de.kjumybit.fhem.Component", {
+	return UIComponent.extend("kjumybit.ui5.example.Component", {
 
 		metadata: {
 			manifest: "json"
