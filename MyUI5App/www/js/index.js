@@ -43,6 +43,7 @@ var app = {
     onDeviceReady: function() {
         sap.ui.getCore().attachInit(function() {
 				new sap.m.Shell({
+                    appWidthLimited: false,
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
 						name : "kjumybit.ui5.example"

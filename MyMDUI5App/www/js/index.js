@@ -16,31 +16,43 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+(function () {
+    'use strict';
+
 var app = {
+    
     // Application Constructor
     initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        this.bindEvents();
     },
-
+    
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    
+    
     // deviceready Event Handler
     //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
+        sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+                    appWidthLimited: false,
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "kjumybit.ui5.example"
+					})
+				}).placeAt("content");
+			});
     },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
 
 app.initialize();
+
+}());

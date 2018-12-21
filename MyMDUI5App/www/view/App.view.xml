@@ -1,0 +1,8 @@
+<mvc:View
+	controllerName="kjumybit.ui5.example.controller.App" 
+	displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc"  
+	xmlns="sap.m">
+	<SplitApp id="app" orientationChange="onOrientationChange" />
+</mvc:View>

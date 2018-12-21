@@ -1,0 +1,27 @@
+<mvc:View controllerName="kjumybit.ui5.example.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:t="sap.tnt"
+	height="100%">
+	<Page id="Master" 
+		title="{i18n>masterTitle}"
+		backgroundDesign="Standard"
+		showNavButton="false" >
+		<customHeader>
+			<Toolbar width="100%" >
+				<Button icon="sap-icon://nav-back" press="onPressNavigationBack" />
+				<ToolbarSpacer/>
+			 </Toolbar>
+		</customHeader>
+
+		<content>
+			 			
+		</content>
+
+		<footer>
+		</footer>
+		
+	</Page>
+</mvc:View>

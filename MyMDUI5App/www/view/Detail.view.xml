@@ -1,0 +1,85 @@
+<mvc:View 
+	controllerName="kjumybit.ui5.example.controller.Detail" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Page id="Detail" title="{i18n>detailOneTitle}" showNavButton="false">
+
+		<!-- custom header with own navigation button (master button) -->
+		<customHeader>
+			<Bar design="Header">
+				<contentLeft>
+					<!-- show master view-->
+					<Button icon="sap-icon://menu2" press="onMenuBtnPress" visible="{runtime>/header/masterBtnVisible}"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="{i18n>detailOneTitle}" wrapping="true" textAlign="Center"/>
+				</contentMiddle>
+			    <contentRight>
+				</contentRight>
+			</Bar>
+		</customHeader>	
+
+		<!-- content section-->
+		<content>
+			<!-- Example content: device and media details-->
+
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="SimpleFormDisplay354"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title="Device and Display Features"
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+						<Label text="System Type" />
+						<Text text="{ 
+							path: 'device>/system',
+							formatter: '.formatter.getSystemTypeName'
+						}" />
+						<Label text="OS Name" />
+						<Text text="{device>/os/name}"/>
+						<Label text="OS Version" />
+						<Text text="{device>/os/versionStr}" />
+						<Label text="Display Size" />
+						<Text text="{device>/resize/height} x {device>/resize/width}" />
+						<Label text="Display Orientation" />
+						<Text text="{= ${device>/orientation/landscape} ? 'landscape' : 'portrait' }" />
+						<Label text="Own view mode" />	
+						<Text text="{runtime>/viewMode/mode}" />
+						<Label text="Is a Cordova app" />
+						<Text text="{runtime>/cordova/isACordovaApp}" />
+						<Label text="Cordova version" />
+						<Text text="{runtime>/cordova/version}" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+
+		</content> 
+
+		<!-- footer section-->
+		<footer>
+			<Bar> 
+				<contentLeft>
+				</contentLeft>
+				<contentMiddle>
+				</contentMiddle>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

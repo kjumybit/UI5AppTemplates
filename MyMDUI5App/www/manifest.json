@@ -1,0 +1,108 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "kjumybit.ui5.example",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"subtitle": "{{appSubTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "",
+			"version": "1.52.8"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		],
+		"fullWidth": true
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"handleValidation": true,		
+		"rootView": {
+			"viewName": "kjumybit.ui5.example.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "kjumybit.ui5.example.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "kjumybit.ui5.example.view",
+				"controlId": "app",
+				"transition": "show"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"view": "App",
+					"name": "App",
+					"target": [ "master", "detail" ]
+			  	}
+			],
+			"targets": {
+                "master": {
+					"viewName": "Master",
+					"viewId": "MasterView",
+					"viewLevel": 1,
+					"transition": "show",
+					"controlAggregation": "masterPages"	
+				},
+                "detail": {
+					"viewName": "Detail",
+					"viewId": "DetailView",					
+					"viewLevel": 1,
+					"transition": "show",					
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	}
+}
