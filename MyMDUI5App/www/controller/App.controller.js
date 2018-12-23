@@ -35,8 +35,8 @@ sap.ui.define([
 			this._oSplittApp = this._oSplittApp || this.getSplitAppObj();
 			
 			this._oSplittApp.setMode("ShowHideMode");  // default
-			this._oSplittApp.setInitialMaster('Master');
-			this._oSplittApp.setInitialDetail('Detail');
+			//this._oSplittApp.setInitialMaster('Master');
+			//this._oSplittApp.setInitialDetail('Detail');
 
 			this.determineViewMode();
 			this.hideDefaultMasterButton();				

@@ -1,10 +1,10 @@
 <mvc:View 
-	controllerName="kjumybit.ui5.example.controller.Detail" 
+	controllerName="kjumybit.ui5.example.controller.DetailTwo" 
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:f="sap.ui.layout.form"
 	xmlns="sap.m">
-	<Page id="Detail" title="{i18n>detailOneTitle}" showNavButton="false">
+	<Page id="Detail" title="{i18n>detailTwoTitle}" showNavButton="false">
 
 		<!-- custom header with own navigation button (master button) -->
 		<customHeader>
@@ -14,11 +14,11 @@
 					<Button icon="sap-icon://menu2" press="onMenuBtnPress" visible="{runtime>/header/masterBtnVisible}"/>
 				</contentLeft>
 				<contentMiddle>
-					<Text text="{i18n>detailOneTitle}" wrapping="true" textAlign="Center"/>
+					<Text text="{i18n>detailTwoTitle}" wrapping="true" textAlign="Center"/>
 				</contentMiddle>
 			    <contentRight>
 					<!-- show object details -->
-					<Button icon="sap-icon://customize" press="onObjectBtnPress"/>						
+					<Button icon="sap-icon://customize" press="onObjectBtnPress"/>				
 				</contentRight>
 			</Bar>
 		</customHeader>	
@@ -28,10 +28,10 @@
 			<!-- Example content: device and media details-->
 
 			<VBox class="sapUiSmallMargin">
-				<f:SimpleForm id="SimpleFormDisplay354"
+				<f:SimpleForm 
 					editable="false"
 					layout="ResponsiveGridLayout"
-					title="Device and Display Features"
+					title="Features"
 					labelSpanXL="3"
 					labelSpanL="3"
 					labelSpanM="3"
@@ -46,25 +46,8 @@
 					columnsM="1"
 					singleContainerFullSize="false" >
 					<f:content>
-						<Label text="System Type" />
-						<Text text="{ 
-							path: 'device>/system',
-							formatter: '.formatter.getSystemTypeName'
-						}" />
-						<Label text="OS Name" />
-						<Text text="{device>/os/name}"/>
-						<Label text="OS Version" />
-						<Text text="{device>/os/versionStr}" />
-						<Label text="Display Size" />
-						<Text text="{device>/resize/height} x {device>/resize/width}" />
-						<Label text="Display Orientation" />
-						<Text text="{= ${device>/orientation/landscape} ? 'landscape' : 'portrait' }" />
-						<Label text="Own view mode" />	
-						<Text text="{runtime>/viewMode/mode}" />
-						<Label text="Is a Cordova app" />
-						<Text text="{runtime>/cordova/isACordovaApp}" />
-						<Label text="Cordova version" />
-						<Text text="{runtime>/cordova/version}" />
+						<Label text="Label" />
+						<Text text="Value" />
 					</f:content>
 				</f:SimpleForm>
 			</VBox>

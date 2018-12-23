@@ -61,6 +61,36 @@ sap.ui.define([
 		 *  App event handler
 		 ** ================================================================================ */	
 
+		/**
+		 * Handles selection of an item in the navigation list.
+		 * Hide navigation view (master page) and navigate (display) selected detail page.
+		 * Hints:
+		 * - when navigating to a new detail view for the first time, it is not known to the spilt app
+		 *   controll (not a member of the detail page aggregatio)
+		 * - to load a detail view we apply a router navigation, wich requries a route and target 
+		 *   to the new detail view in the <code>manifest.json</code> configuration
+		 * 
+		 * @param {object} oEvent List item press event
+		 */
+		onNavItemPress: function(oEvent) {
+			var sRouteId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
+
+			// get View ID from target configuration
+			// hint: the target ID used here has the same name as the route ID, but it can be different
+			var sPageId = this.getRouter().getTarget(sRouteId)._oOptions.viewId
+
+			jQuery.sap.log.info("Navigate to detail view " + sPageId + " with route " + sRouteId, null, _sComponent);
+			
+			// load view if not already assigned to the aggregation of detail pages of the split app
+			this.getRouter().navTo(sRouteId ,false);
+
+			// replace current detail view with new detail in navigation container for detail pages
+			this.getSplitAppObj().toDetail(this.getDetailPageId(sPageId)); 
+
+			this._closeMasterView(false);
+
+		},
+
 
 		/**
 		 * Handles page Back button press
@@ -69,6 +99,27 @@ sap.ui.define([
 		 * @param {object} oEvent Button event
 		 */
 		onPressNavigationBack: function(oEvent) {
+
+			this._closeMasterView(true);
+		},
+
+		
+		/**
+		 * On Phones there is always only one view visible. The current master view mus be replaced
+		 * by a detail view. 
+		 * - the detail view must have been loaded by the router (or on bootstrap)
+		 * - if we navigate to a new detail view, it is already set by the <code>onNavItemPress</code>.
+		 * - if we go back to the current (last) detail view  by <code>onPressNavigationBack</code> we have 
+		 *   request a navigation
+		 * 
+		 * OpenUI5 Docu:
+		 * - hideMaster() and showMaster: 
+		 *   Used to hide/show the master page when in ShowHideMode and the device is in portrait mode.
+		 * 
+		 * @param {boolean} bBackToDetailView Navigate to current detail view 
+		 */
+		_closeMasterView: function(bBackToDetailView) {
+
 			let oApp = this.getSplitAppObj();
 
 			jQuery.sap.log.info("Close master view", null, _sComponent);
@@ -80,16 +131,21 @@ sap.ui.define([
 				case this.ViewMode.full:
 					// hide master view 
 					oApp.setMode("HideMode"); 
-					//oApp.hideMaster(); don't work
 					break;
 				case this.ViewMode.overlay:
 					// hide master view 
 					oApp.setMode("HideMode"); 
-					// oApp.hideMaster();
 					break;					
 				case this.ViewMode.single:
-					// navigate to detail view (replace master view)
-					oApp.toMaster(this.getDetailPageId('DetailView'), 'show');
+					// if called from navigation item, the new target detail view is loaded, but 
+					// not active, so do a navigation only if triggerd by the navigation back button			
+					if (bBackToDetailView) {
+						// navigate to (current) detail view (replace master view)
+						// getPreviousPage() returns a detail view as we have have even one master view
+						let oDetailView = oApp.getPreviousPage();
+						jQuery.sap.log.info("Navigate to previous page " + oDetailView.getId(), null, _sComponent);
+						oApp.toDetail(oDetailView.getId()); 	
+					}					
 					break;
 				default:					
 			}
@@ -97,7 +153,6 @@ sap.ui.define([
 			// keep default master button invisible
 			this.hideDefaultMasterButton();			
 		}
-
 	
 	});
 });

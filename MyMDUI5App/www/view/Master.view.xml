@@ -2,8 +2,8 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"	
 	xmlns="sap.m" 
-	xmlns:t="sap.tnt"
 	height="100%">
 	<Page id="Master" 
 		title="{i18n>masterTitle}"
@@ -17,7 +17,12 @@
 		</customHeader>
 
 		<content>
-			 			
+			<List itemPress="onNavItemPress">
+				<items>
+					<StandardListItem title="To Detail 1" type="Active" custom:to="detail"/>
+					<StandardListItem title="To Detail 2" type="Active" custom:to="detail2"/>
+				</items>
+			</List>			 			
 		</content>
 
 		<footer>

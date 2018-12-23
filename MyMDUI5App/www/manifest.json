@@ -85,7 +85,25 @@
 					"view": "App",
 					"name": "App",
 					"target": [ "master", "detail" ]
-			  	}
+				},
+				{
+					"pattern": "detail",
+					"view": "App",
+					"name": "detail",
+					"target": [ "master", "detail" ]
+			  	},					
+				{
+					"pattern": "detail2",
+					"view": "App",
+					"name": "detail2",
+					"target": [ "master", "detail2" ]
+				},
+				{
+					"pattern": "object",
+					"view": "App",
+					"name": "object",
+					"target": [ "master", "object" ]
+				}					  				  
 			],
 			"targets": {
                 "master": {
@@ -101,7 +119,22 @@
 					"viewLevel": 1,
 					"transition": "show",					
 					"controlAggregation": "detailPages"
+				},
+                "detail2": {
+					"viewName": "DetailTwo",
+					"viewId": "DetailTwoView",					
+					"viewLevel": 1,
+					"transition": "show",					
+					"controlAggregation": "detailPages"
+				},
+                "object": {
+					"viewName": "ObjectDetail",
+					"viewId": "ObjectDetailView",					
+					"viewLevel": 2,
+					"transition": "show",					
+					"controlAggregation": "detailPages"
 				}
+
 			}
 		}
 	}
