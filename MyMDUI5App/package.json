@@ -22,5 +22,8 @@
             "browser",
             "android"
         ]
+    },
+    "devDependencies": {
+        "gulp": "^4.0.0"
     }
 }

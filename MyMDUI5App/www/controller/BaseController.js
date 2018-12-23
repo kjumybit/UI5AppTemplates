@@ -197,7 +197,7 @@ sap.ui.define([
 		onObjectBtnPress: function(oEvent) {
 
 			jQuery.sap.log.info("Open object detail view", null, _sComponent);
-			this.navDetailToDetail('object');
+			this.getSplitAppObj().toDetail(this.getDetailPageId('ObjectDetailView'));
 		},
 
 
@@ -214,30 +214,6 @@ sap.ui.define([
 		},
 
 
-		/**
-		 * Navigate (display) the object detail view from a detail view.
-		 * Hints:
-		 * - when navigating to a new detail view for the first time, it is not known to the spilt app
-		 *   controll (not a member of the detail page aggregatio)
-		 * - to load a detail view we apply a router navigation, wich requries a route and target 
-		 *   to the new detail view in the <code>manifest.json</code> configuration
-		 * 
-		 * @param {string} sRouteId ID of a route to the detail view
-		 */
-		navDetailToDetail: function(sRouteId) {
-
-			// get View ID from target configuration
-			// hint: the target ID used here has the same name as the route ID, but it can be different			
-			var sPageId = this.getRouter().getTarget(sRouteId)._oOptions.viewId
-
-			jQuery.sap.log.info("Navigate to detail view " + sPageId + " with route " + sRouteId, null, _sComponent);
-			
-			// load view if not already assigned to the aggregation of detail pages of the split app
-			this.getRouter().navTo(sRouteId ,false);
-
-			// replace current detail view with new detail in navigation container for detail pages
-			this.getSplitAppObj().toDetail(this.getDetailPageId(sPageId)); 	
-		},
 
 
 		/**

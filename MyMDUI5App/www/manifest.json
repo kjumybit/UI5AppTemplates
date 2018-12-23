@@ -84,26 +84,8 @@
 					"pattern": "",
 					"view": "App",
 					"name": "App",
-					"target": [ "master", "detail" ]
-				},
-				{
-					"pattern": "detail",
-					"view": "App",
-					"name": "detail",
-					"target": [ "master", "detail" ]
-			  	},					
-				{
-					"pattern": "detail2",
-					"view": "App",
-					"name": "detail2",
-					"target": [ "master", "detail2" ]
-				},
-				{
-					"pattern": "object",
-					"view": "App",
-					"name": "object",
-					"target": [ "master", "object" ]
-				}					  				  
+					"target": [ "master", "detail2", "object", "detail" ]
+				}  				  
 			],
 			"targets": {
                 "master": {

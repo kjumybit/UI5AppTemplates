@@ -35,11 +35,13 @@ sap.ui.define([
 			this._oSplittApp = this._oSplittApp || this.getSplitAppObj();
 			
 			this._oSplittApp.setMode("ShowHideMode");  // default
-			//this._oSplittApp.setInitialMaster('Master');
-			//this._oSplittApp.setInitialDetail('Detail');
+
+			this._oSplittApp.setInitialDetail(this.getDetailPageId('DetailView')); // don't work
+			// wotkaround: the first detail page must be the last view in the view list 
+			// of the default route
 
 			this.determineViewMode();
-			this.hideDefaultMasterButton();				
+			this.hideDefaultMasterButton();	
 		},
 		
 		

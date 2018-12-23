@@ -19,8 +19,8 @@
 		<content>
 			<List itemPress="onNavItemPress">
 				<items>
-					<StandardListItem title="To Detail 1" type="Active" custom:to="detail"/>
-					<StandardListItem title="To Detail 2" type="Active" custom:to="detail2"/>
+					<StandardListItem title="To Detail 1" type="Active" custom:to="DetailView"/>
+					<StandardListItem title="To Detail 2" type="Active" custom:to="DetailTwoView"/>
 				</items>
 			</List>			 			
 		</content>

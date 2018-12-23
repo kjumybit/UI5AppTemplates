@@ -65,30 +65,25 @@ sap.ui.define([
 		 * Handles selection of an item in the navigation list.
 		 * Hide navigation view (master page) and navigate (display) selected detail page.
 		 * Hints:
-		 * - when navigating to a new detail view for the first time, it is not known to the spilt app
-		 *   controll (not a member of the detail page aggregatio)
-		 * - to load a detail view we apply a router navigation, wich requries a route and target 
-		 *   to the new detail view in the <code>manifest.json</code> configuration
+		 * - when navigating to a new detail view for the first time, it must be placed into the 
+		 *   detail page aggregation of the spilt app controll.
+		 *   We achieve this by loading a list af views for the default route at startup. 
+		 *   The manifest.json look slike:
+		 *   <code>"target": [ "master", "detail2", "object", "detail" ]</code>
 		 * 
 		 * @param {object} oEvent List item press event
 		 */
 		onNavItemPress: function(oEvent) {
-			var sRouteId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 
-			// get View ID from target configuration
-			// hint: the target ID used here has the same name as the route ID, but it can be different
-			var sPageId = this.getRouter().getTarget(sRouteId)._oOptions.viewId
+			// get View ID from event parameter
+			var sPageId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 
-			jQuery.sap.log.info("Navigate to detail view " + sPageId + " with route " + sRouteId, null, _sComponent);
+			jQuery.sap.log.info("Navigate to detail view " + sPageId, null, _sComponent);
 			
-			// load view if not already assigned to the aggregation of detail pages of the split app
-			this.getRouter().navTo(sRouteId ,false);
-
 			// replace current detail view with new detail in navigation container for detail pages
 			this.getSplitAppObj().toDetail(this.getDetailPageId(sPageId)); 
 
 			this._closeMasterView(false);
-
 		},
 
 

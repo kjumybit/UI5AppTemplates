@@ -4,5 +4,12 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	xmlns:mvc="sap.ui.core.mvc"  
 	xmlns="sap.m">
-	<SplitApp id="app" orientationChange="onOrientationChange" />
+	<SplitApp id="app" 
+		orientationChange="onOrientationChange"  
+	/>
+	<!-- Hint: initialDetail and InitialMaster don't work here. The toolkit
+ 		looks for a views named "__xmlview0  MasterView" and "__xmlview0  DetailView"."
+		All XML views are added with the component as parent. IDs are
+		"__component0   MasterView" as well as "__component   DetailView" 	
+	-->
 </mvc:View>
