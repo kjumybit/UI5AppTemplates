@@ -98,7 +98,26 @@ sap.ui.define([
 			this._closeMasterView(true);
 		},
 
-		
+
+		/**
+		 * Handles press on button "Settings"
+		 * Open Settings view as detail page.
+		 * Replace current detail view but don't close master view.
+		 * 
+		 * @param {object} oEvent Button event
+		 */		
+		onPressSettings: function(oEvent) {
+
+			var sPageId = "SettingsView";
+
+			jQuery.sap.log.info("Navigate to settings view " + sPageId, null, _sComponent);
+
+			// replace current detail view with new detail in navigation container for detail pages
+			this.getSplitAppObj().toDetail(this.getDetailPageId(sPageId)); 
+
+		},
+
+
 		/**
 		 * On Phones there is always only one view visible. The current master view mus be replaced
 		 * by a detail view. 

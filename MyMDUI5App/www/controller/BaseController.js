@@ -148,7 +148,7 @@ sap.ui.define([
 
 
 		/**
-		 * Handle press on Menue button at detail views.
+		 * Handle press on Menu button at detail views.
 		 * Show navigation view (master view) depending on own view mode.
 		 * - landscape mode: master and detail view
 		 * - portrait mode : master and detail view 

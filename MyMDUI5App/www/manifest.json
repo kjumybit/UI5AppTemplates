@@ -84,7 +84,7 @@
 					"pattern": "",
 					"view": "App",
 					"name": "App",
-					"target": [ "master", "detail2", "object", "detail" ]
+					"target": [ "master", "detail2", "object", "settings", "detail" ]
 				}  				  
 			],
 			"targets": {
@@ -115,8 +115,14 @@
 					"viewLevel": 2,
 					"transition": "show",					
 					"controlAggregation": "detailPages"
+				},
+                "settings": {
+					"viewName": "Settings",
+					"viewId": "SettingsView",					
+					"viewLevel": 1,
+					"transition": "show",					
+					"controlAggregation": "detailPages"
 				}
-
 			}
 		}
 	}

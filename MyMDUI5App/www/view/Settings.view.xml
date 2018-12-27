@@ -1,0 +1,68 @@
+<mvc:View 
+	controllerName="kjumybit.ui5.example.controller.Settings" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Page id="Detail" title="{i18n>settingsTitle}" showNavButton="false">
+
+		<!-- custom header with own navigation button (master button) -->
+		<customHeader>
+			<Bar design="Header">
+				<contentLeft>
+					<!-- show master view-->
+					<Button icon="sap-icon://nav-back" press="onSettingsBackBtnPress" />
+				</contentLeft>
+				<contentMiddle>
+					<Text text="{i18n>settingsTitle}" wrapping="true" textAlign="Center"/>
+				</contentMiddle>
+			    <contentRight>
+				</contentRight>
+			</Bar>
+		</customHeader>	
+
+		<!-- content section-->
+		<content>
+			<!-- Example content: device and media details-->
+
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title="Settings"
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+						<Label text="Parameter" />
+						<Text text="Value" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+
+		</content> 
+
+		<!-- footer section-->
+		<footer>
+			<Bar> 
+				<contentLeft>
+				</contentLeft>
+				<contentMiddle>
+				</contentMiddle>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

@@ -13,6 +13,7 @@
 			<Toolbar width="100%" >
 				<Button icon="sap-icon://nav-back" press="onPressNavigationBack" />
 				<ToolbarSpacer/>
+				<Button icon="sap-icon://action-settings" press="onPressSettings" />
 			 </Toolbar>
 		</customHeader>
 
